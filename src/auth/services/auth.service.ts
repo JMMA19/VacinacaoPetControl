@@ -40,23 +40,23 @@ export class AuthService {
         return null;
     }
 
-    async login(user: UserDto): Promise<LoginResultDto | HttpException> {
-        const userDb = await this.usersService.findByEmail(user.email);
+    async login(user: {password: any, username: any}): Promise<LoginResultDto | HttpException> {
+        const userDb = await this.usersService.findByEmail(user.username);
         if (userDb.emailVerified) {
             const payload = {
-                id: user.id,
-                name: user.name, 
-                lastName: user.lastName,
-                email: user.email,
-                cpfCnpj: user.cpfCnpj,
-                role: user.role.type,
-                roleId: user.role.id,
-                abrangency: user.abrangency,
-                activite: user.activite,
-                segment: user.segment,
-                language: user.language,
-                profileImageId: user.profileImageId ?  user.profileImageId : null,
-                profileImageUrl: user.profileImageId ? await this.imagekitService.getFileUrl(user.profileImageId) : null 
+                id: userDb.id,
+                name: userDb.name, 
+                lastName: 'null',
+                email: userDb.email,
+                cpfCnpj: 'null',
+                role: userDb.role.type,
+                roleId: 'null',
+                abrangency: 'null',
+                activite: 'null',
+                segment: 'null',
+                language: 'null',
+                profileImageId: 'null',
+                profileImageUrl:  null 
             };
             return await this.generateTokens(payload);
         } else {

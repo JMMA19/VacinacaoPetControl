@@ -22,16 +22,15 @@ export class AuthController {
     private readonly emaileService: EmailService
   ) { }
 
-  @ApiBasicAuth()
+
   @ApiOperation({ summary: 'Login endpoint' })
   @ApiResponse({
     status: 200
   })
-  @UseGuards(LocalAuthGuard)
   @Post('login')
   @HttpCode(200)
   async login(@Request() req) {
-    return this.authService.login(req.user);
+    return this.authService.login(req.body);
   }
 
   @ApiOperation({ summary: 'Refresh token endpoint' })
