@@ -1,0 +1,13 @@
+{
+  "INVALID": "Invalid token!",
+  "EMAIL_FIRST_ACCESS": {
+    "FROM": "vacPet System <{email}>",
+    "SUBJECT": "First Access - vacPet",
+    "BODY": {
+      "GREETINGS": "Hello",
+      "MSG_1_CONTEXT": "Welcome to vacPet.",
+      "MSG_2_INSTRUCTIONS": "Click the button below to set your password.",
+      "BUTTON_NEW_PASSWORD": "Set password"
+    }
+  }
+}

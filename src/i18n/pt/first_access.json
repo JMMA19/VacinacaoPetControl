@@ -1,0 +1,13 @@
+{
+  "INVALID": "Token inválido!",
+  "EMAIL_FIRST_ACCESS": {
+    "FROM": "vacPet <{email}>",
+    "SUBJECT": "Primeiro Acesso - vacPet",
+    "BODY": {
+      "GREETINGS": "Olá",
+      "MSG_1_CONTEXT": "Bem vindo ao vacPet.",
+      "MSG_2_INSTRUCTIONS": "Clique no botão abaixo para definir a sua senha.",
+      "BUTTON_NEW_PASSWORD": "Definir senha"
+    }
+  }
+}
