@@ -42,7 +42,7 @@ export class AuthService {
 
     async login(user: {password: any, username: any}): Promise<LoginResultDto | HttpException> {
         const userDb = await this.usersService.findByEmail(user.username);
-        if (userDb.emailVerified) {
+        
             const payload = {
                 id: userDb.id,
                 name: userDb.name, 
@@ -59,9 +59,6 @@ export class AuthService {
                 profileImageUrl:  null 
             };
             return await this.generateTokens(payload);
-        } else {
-            return new UnauthorizedException('Email não verificado!');  
-        }
     }
 
     async refreshTokens(refreshTokenDto: RefreshTokenDto): Promise<LoginResultDto | HttpException> {

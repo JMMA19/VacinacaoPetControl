@@ -160,22 +160,22 @@ export class UsersService {
                 throw new Error('Email já utilizado.');
             }
 
-            if (await this.usersRepository.findOne({ where: { cpfCnpj: createUserDto.cpfCnpj } })) {
+          /*   if (await this.usersRepository.findOne({ where: { cpfCnpj: createUserDto.cpfCnpj } })) {
                 throw new Error('CPF/CNPJ já utilizado.');
-            }
+            } */
 
             const newUser = new User();
             newUser.active = true;
             newUser.name = createUserDto.name;
             newUser.lastName = createUserDto.lastName;
-            newUser.acceptedPrivacyPolicy = createUserDto.acceptedPrivacyPolicy;
-            newUser.acceptedTermsOfUse = createUserDto.acceptedTermsOfUse;
+            newUser.acceptedPrivacyPolicy = true;
+            newUser.acceptedTermsOfUse = true;
             newUser.password = await this.utilService.generateHash(createUserDto.password);
             newUser.email = createUserDto.email.toLowerCase();
-            newUser.cpfCnpj = createUserDto.cpfCnpj;
-            newUser.subscriptionId = createUserDto.subscriptionId;
-            newUser.background = createUserDto.background;
-            newUser.targetValue = createUserDto.targetValue;
+            newUser.cpfCnpj = '999999999';
+            newUser.subscriptionId = '15151';
+            newUser.background = null;
+            newUser.targetValue = null;
 
             if (createUserDto.state) {
                 newUser.state = await this.locationService.findState(+createUserDto.state);
@@ -232,8 +232,8 @@ export class UsersService {
             if (createUserDto.collaborator) {
                 newUser.collaborator = await this.collaboratorService.findOne(createUserDto.collaborator);
             }
-            const savedUser = await this.usersRepository.save(newUser);
-            this.validateEmailRequest(savedUser);
+            this.usersRepository.save(newUser);
+            //this.validateEmailRequest(savedUser);
             return <UserDto>{};
         } catch (error) {
             throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
