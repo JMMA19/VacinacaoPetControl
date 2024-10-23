@@ -181,7 +181,7 @@ export class ExpenseService {
                 name: _dbEntity.budgetCategory.name
             },
             documents: _dbEntity.documents.map(dd =>
-                <DocumentDto>{
+                <DocumentDto><unknown>{
                     id: dd.id,
                     filename: dd.filename,
                     size: filesize.filesize(dd.size),
@@ -269,7 +269,7 @@ export class ExpenseService {
         }
 
         const dd = await this.documentsService.findOne(dto.documentId);
-        return <DocumentDto>{
+        return <DocumentDto><unknown>{
             id: dd.id,
             filename: dd.filename,
             size: filesize.filesize(dd.size),
@@ -428,7 +428,7 @@ export class ExpenseService {
                     name: _dbEntity.budgetCategory.name
                 },
                 documents: _dbEntity.documents.map(dd =>
-                    <DocumentDto>{
+                    <DocumentDto><unknown>{
                         id: dd.id,
                         filename: dd.filename,
                         size: filesize.filesize(dd.size),
@@ -511,7 +511,7 @@ export class ExpenseService {
                     name: cs.project.name
                 }
             }) : [],
-            documents: dbExpense.documents && dbExpense.documents.map(dd => <DocumentDto>{
+            documents: dbExpense.documents && dbExpense.documents.map(dd => <DocumentDto><unknown>{
                 id: dd.id,
                 filename: dd.filename,
                 size: filesize.filesize(dd.size),
@@ -584,7 +584,7 @@ export class ExpenseService {
                     name: cs.project.name
                 }
             }) : [],
-            documents: dbEntity.documents && dbEntity.documents.map(dd => <DocumentDto>{
+            documents: dbEntity.documents && dbEntity.documents.map(dd => <DocumentDto><unknown>{
                 id: dd.id,
                 filename: dd.filename,
                 size: filesize.filesize(dd.size),

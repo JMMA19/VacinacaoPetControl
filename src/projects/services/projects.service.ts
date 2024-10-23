@@ -650,7 +650,7 @@ export class ProjectsService {
 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { documents, institute, projectMembers, ...remaining } = dbProject;
-        const projectDocumentsDto = dbProject.documents && dbProject.documents.map(d => <DocumentDto>{
+        const projectDocumentsDto = dbProject.documents && dbProject.documents.map(d => <DocumentDto><unknown>{
             id: d.id,
             filename: d.filename,
             url: d.url,

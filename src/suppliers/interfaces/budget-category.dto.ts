@@ -2,6 +2,9 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsInt, IsString } from "class-validator";
 
 export class BudgetCategoryDto {
+    constructor() {
+        // Construtor vazio
+    }
 
     @IsInt()
     @ApiProperty({ example: '2', description: 'The budget category ID'})

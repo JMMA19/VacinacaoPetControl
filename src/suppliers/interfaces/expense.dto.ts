@@ -47,11 +47,7 @@ export class ExpenseDto {
     @IsString()
     @ApiProperty({ example: 'Atraso', description: 'The expense status', enum: ExpenseStatusEnum, default: ExpenseStatusEnum.PLANNED })
     status?: string;
-    
-    @IsInt()
-    @ApiProperty({ description: 'The expense budget category', enum: BudgetCategoryDto })
-    budgetCategory: BudgetCategoryDto;
-    
+ 
     @ApiProperty({ description: 'The list of projects sharing this expense along with their sharing quote', type: CostShareDto, isArray: true })
     costShare?: CostShareDto[];
     

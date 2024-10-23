@@ -42,7 +42,7 @@ export class DocumentsService {
         const savedDocument = await this.documentRepository.create(newDocument);
         await this.documentRepository.save(newDocument);
 
-        return <DocumentDto>{
+        return <DocumentDto><unknown>{
             id: newDocument.id,
             documentType: newDocument.documentType && <DocumentTypeDto>{
                 id: newDocument.documentType.id,

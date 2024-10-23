@@ -52,11 +52,14 @@ import { SegmentModule } from './segment/segment.module';
 import { SegmentService } from './segment/services/segment.service';
 import { ImagekitController } from './imagekit/controllers/imagekit.controller';
 import { ImagekitService } from './imagekit/services/imagekit.service';
-import { ImageKitModule } from '@platohq/nestjs-imagekit';
 import { MercadoPagoModule } from './mercadopago/mercadopago.module';
 import { InstitutionModule } from './institution/institution.module';
 import { InstitutionController } from './institution/controllers/institution.controller';
 import { InstitutionService } from './institution/services/institution.service';
+import { PetModule } from './pet/pet.module';
+import { ImageKitModule } from '@platohq/nestjs-imagekit/dist/imagekit.module';
+import { VacinaModule } from './vacina/vacina.module';
+import { VacinaTipoModule } from './vacina-tipo/vacina-tipo.module';
 
 const { combine, timestamp, label, printf } = winston.format;
 
@@ -157,7 +160,10 @@ const customLogFormat = printf(({ level, message, timestamp }) => {
     InstitutesModule, ProjectModule, S3Module, FileManagementModule,
     DocumentsModule, LocationModule, SuppliersModule, WorkplanModule,
     UtilModule, ContributionsModule, LoanModule, CollaboratorsModule,
-    InstitutionModule
+    InstitutionModule,
+    PetModule,
+    VacinaModule,
+    VacinaTipoModule
   ],
   controllers: [AppController, RolesController, UsersController, ImagekitController,
     CollaboratorsController, DocumentsController, ExpensesController, InstitutionController

@@ -53,6 +53,7 @@
     "file-saver": "^2.0.5",
     "filesize": "^10.1.0",
     "helmet": "^7.1.0",
+    "imagekit": "^5.2.0",
     "jszip": "^3.10.1",
     "mercadopago": "^2.0.9",
     "moment": "^2.29.4",

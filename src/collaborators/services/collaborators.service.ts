@@ -692,7 +692,7 @@ export class CollaboratorsService {
 
     const collaboratorDocumentsDto = newCollaborator.documents.map(
       d =>
-        <DocumentDto>{
+        <DocumentDto><unknown>{
           id: d.id,
           filename: d.filename,
           created: moment(d.created).format('DD/MM/YYYY [às] HH:mm'),
@@ -700,14 +700,12 @@ export class CollaboratorsService {
           icon: d.fileType.icon,
           iconHighContrast: d.fileType.iconHighContrast,
           size: filesize.filesize(d.size),
-          documentType:
-            d.documentType &&
+          documentType: d.documentType &&
             <DocumentTypeDto>{
               id: d.documentType.id,
               name: d.documentType.name,
             },
-          fileType:
-            d.fileType &&
+          fileType: d.fileType &&
             <FileTypeDto>{
               id: d.fileType.id,
               name: d.fileType.name,
@@ -1031,7 +1029,7 @@ export class CollaboratorsService {
 
     const collaboratorDocumentsDto = dbCollaborator.documents.map(
       d =>
-        <DocumentDto>{
+        <DocumentDto><unknown>{
           id: d.id,
           filename: d.filename,
           created: moment(d.created).format('DD/MM/YYYY [às] HH:mm'),
@@ -1039,14 +1037,12 @@ export class CollaboratorsService {
           icon: d.fileType.icon,
           iconHighContrast: d.fileType.iconHighContrast,
           size: filesize.filesize(d.size),
-          documentType:
-            d.documentType &&
+          documentType: d.documentType &&
             <DocumentTypeDto>{
               id: d.documentType.id,
               name: d.documentType.name,
             },
-          fileType:
-            d.fileType &&
+          fileType: d.fileType &&
             <FileTypeDto>{
               id: d.fileType.id,
               name: d.fileType.name,
@@ -1145,7 +1141,7 @@ export class CollaboratorsService {
       dbCollaborator.documents &&
       dbCollaborator.documents.map(
         d =>
-          <DocumentDto>{
+          <DocumentDto><unknown>{
             id: d.id,
             filename: d.filename,
             url: d.url,
@@ -1153,8 +1149,7 @@ export class CollaboratorsService {
             iconHighContrast: d.fileType.iconHighContrast,
             size: filesize.filesize(d.size),
             created: moment(d.created).format('DD/MM/YYYY [às] HH:mm'),
-            documentType:
-              d.documentType &&
+            documentType: d.documentType &&
               <DocumentTypeDto>{
                 id: d.documentType.id,
                 name: d.documentType.name,
@@ -1163,8 +1158,7 @@ export class CollaboratorsService {
                   name: d.documentType.documentCategory.name,
                 },
               },
-            fileType:
-              d.fileType &&
+            fileType: d.fileType &&
               <FileTypeDto>{
                 id: d.fileType.id,
                 name: d.fileType.name,
@@ -1265,20 +1259,18 @@ export class CollaboratorsService {
               d.documents &&
               d.documents.map(
                 dd =>
-                  <DocumentDto>{
+                  <DocumentDto><unknown>{
                     id: dd.id,
                     filename: dd.filename,
                     size: filesize.filesize(dd.size),
                     created: moment(dd.created).format('DD/MM/YYYY [às] HH:mm'),
                     url: dd.url,
-                    documentType:
-                      dd.documentType &&
+                    documentType: dd.documentType &&
                       <DocumentTypeDto>{
                         id: dd.documentType.id,
                         name: dd.documentType.name,
                       },
-                    fileType:
-                      dd.fileType &&
+                    fileType: dd.fileType &&
                       <FileTypeDto>{
                         id: dd.fileType.id,
                         name: dd.fileType.name,
